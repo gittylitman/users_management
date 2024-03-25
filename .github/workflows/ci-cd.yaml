@@ -86,7 +86,7 @@ jobs:
       run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
 
     - name: Build and push Docker image to GitHub Packages
-      run: docker buildx build --platform linux/amd64,linux/arm64 -t docker.pkg.github.com/${{ github.repository }}/myapp:latest . --push
+      run: docker buildx build --platform linux/amd64,linux/arm64 -t docker.pkg.github.com/${{ github.repository }}/users_management:latest . --push
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
