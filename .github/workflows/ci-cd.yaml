@@ -68,7 +68,6 @@ jobs:
     needs: publish
     runs-on: ubuntu-latest
     steps:
-
       - name:  Checkout repository
         uses: actions/checkout@v4
 
@@ -79,9 +78,6 @@ jobs:
       #   uses: azure/login@v1
       #   with:
       #     creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-      - name: Set up Azure CLI
-        uses: azure/setup-azure-cli@v1
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
