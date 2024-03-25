@@ -1,0 +1,25 @@
+version: '3.5'
+
+services:
+  laravel:
+    build: 
+      dockerfile: Dockerfile
+    container_name: laravel
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    command: sleep infinity
+
+  db:
+    container_name: postgres
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: ${DB_DATABASE}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - 5432:5432
