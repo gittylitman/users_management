@@ -68,6 +68,10 @@ jobs:
     needs: publish
     runs-on: ubuntu-latest
     steps:
+
+      - name:  Checkout repository
+        uses: actions/checkout@v4
+
       - name:  Login to Azure
         id : az-login
         run : az login
