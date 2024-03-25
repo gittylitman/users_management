@@ -83,5 +83,5 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: ${{ env.APP_NAME }}
-          images: ${{ needs.publish.outputs.image_name }}:latest
+          images: ghcr.io/gittylitman/users_management:latest
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
