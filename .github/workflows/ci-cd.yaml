@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./users-management
+        working-directory: users-management
 
     permissions:
       contents: read
