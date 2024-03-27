@@ -6,16 +6,16 @@ on:
       - main
       - development
 env:
-  WORKING_DIR: ${{ github.workspace }}/users-management
+  WORKING_DIR: users-management
   APP_NAME: CY-WA
 
 jobs:
   docker:
     name: 🐳 Docker Build
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./users-management
+    # defaults:
+    #   run:
+    #     working-directory: ./users-management
 
     permissions:
       contents: read
@@ -49,8 +49,8 @@ jobs:
       - name:  Build and push container image to registry
         uses: docker/build-push-action@v5
         with:
-          context: ${{ env.WORKING_DIR }}
-          file: ${{ env.WORKING_DIR }}/Dockerfile
+          context: ./${{ env.WORKING_DIR }}
+          file: ./${{ env.WORKING_DIR }}/Dockerfile
           push: true
           tags: ${{ steps.docker_meta.outputs.tags }}
           labels: ${{ steps.docker_meta.outputs.labels }}
